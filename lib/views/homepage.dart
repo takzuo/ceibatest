@@ -9,6 +9,8 @@ import 'package:ceibatest/views/user_tile.dart';
 
 class HomePage extends StatelessWidget {
   final UserController usersController = Get.put(UserController());
+  final myController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,15 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              children: const [
-                Icon(Icons.search)
+              children:  [
+                Icon(Icons.search),
+                Container(
+                  width: MediaQuery.of(context).size.width - 80,
+                  child: TextField(
+                    controller: myController,
+                    showCursor: true,
+                  ),
+                )
                 // TEXTFIELD BUSCADOR
               ],
             ),
@@ -36,9 +45,11 @@ class HomePage extends StatelessWidget {
                 return ListView.builder(
                   itemCount: usersController.userList.length,
                   itemBuilder: (context, index) {
-                    return UserTile(usersController.userList[index]);
-                  },
-                  //staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+                    myController.addListener(() {
+                      searchUser = myController.text;
+                    });
+                     return UserTile(usersController.userList[index]);
+                    },
                 );
               }
             }),
@@ -47,4 +58,5 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
 }

@@ -2,6 +2,7 @@ import 'package:ceibatest/const.dart';
 import 'package:ceibatest/views/posts_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:ceibatest/models/user.dart';
+import 'package:get/get.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
@@ -9,7 +10,8 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+
+ return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
         elevation: 2,
@@ -18,6 +20,7 @@ class UserTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               Text(user.name ?? "", style: const TextStyle(fontWeight: FontWeight.bold, color: primaryColor),),
               Row(
                 children: [

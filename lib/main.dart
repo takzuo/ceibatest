@@ -1,10 +1,14 @@
+import 'package:ceibatest/repository/db_services.dart';
 import 'package:ceibatest/views/posts_tile.dart';
 import 'package:ceibatest/views/postspage.dart';
 import 'package:flutter/material.dart';
 import 'package:ceibatest/views/homepage.dart';
 import 'package:ceibatest/const.dart';
+import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final dbDataSource = await DbDataSource.init();
   runApp(MyApp());
 }
 

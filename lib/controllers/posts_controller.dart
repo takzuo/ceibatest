@@ -1,5 +1,5 @@
 import 'package:get/state_manager.dart';
-import 'package:ceibatest/services/remote_services.dart';
+import 'package:ceibatest/repository/remote_services.dart';
 
 class PostController extends GetxController {
   var isLoading = true.obs;
