@@ -1,21 +1,18 @@
 import 'package:ceibatest/const.dart';
 import 'package:ceibatest/controllers/posts_controller.dart';
+import 'package:ceibatest/views/posts_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
-import 'package:ceibatest/controllers/user_controller.dart';
-import 'package:ceibatest/views/user_tile.dart';
 
-class HomePage extends StatelessWidget {
-  final UserController usersController = Get.put(UserController());
+class PostPage extends StatelessWidget {
+  final PostController postsController = Get.put(PostController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
-       title: const Text("Prueba de Ingreso"),
+        title: const Text("Posts "),
       ),
       body: Column(
         children: [
@@ -30,13 +27,14 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              if (usersController.isLoading.value) {
+              if (postsController.isLoading.value) {
                 return Center(child: CircularProgressIndicator());
               } else {
                 return ListView.builder(
-                  itemCount: usersController.userList.length,
+                  itemCount: postsController.postList.length,
                   itemBuilder: (context, index) {
-                    return UserTile(usersController.userList[index]);
+                    print(postsController.postList);
+                    return PostTile(postsController.postList[index]);
                   },
                   //staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                 );

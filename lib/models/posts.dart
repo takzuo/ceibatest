@@ -2,10 +2,10 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 
-List<Posts> productFromJson(String str) =>
+List<Posts> postsFromJson(String str) =>
     List<Posts>.from(json.decode(str).map((x) => Posts.fromJson(x)));
 
-String productToJson(List<Posts> data) =>
+String postsToJson(List<Posts> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Posts {
@@ -18,7 +18,7 @@ class Posts {
   });
 
   final int? id;
-  final String? userId;
+  final int? userId;
   final String? title;
   final String? body;
 

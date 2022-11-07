@@ -1,4 +1,5 @@
 import 'package:ceibatest/views/posts_tile.dart';
+import 'package:ceibatest/views/postspage.dart';
 import 'package:flutter/material.dart';
 import 'package:ceibatest/views/homepage.dart';
 import 'package:ceibatest/const.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         "/homepage": (context) => HomePage(),
-        "/poststile": (context) => PostsTile(id: theid),
+        "/postspage": (context) => PostPage(),
       },
     );
   }

@@ -14,7 +14,7 @@ class UserController extends GetxController {
   void fetchUsers() async {
     try {
       isLoading(true);
-      var users = await RemoteServices.fetchProducts();
+      var users = await RemoteServices.fetchUsers();
       if (users != null) {
         userList.value = users;
       }

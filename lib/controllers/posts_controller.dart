@@ -1,9 +1,9 @@
 import 'package:get/state_manager.dart';
 import 'package:ceibatest/services/remote_services.dart';
 
-class PostsController extends GetxController {
+class PostController extends GetxController {
   var isLoading = true.obs;
-  var postsList = [].obs;
+  var postList = [].obs;
 
   @override
   void onInit() {
@@ -14,9 +14,9 @@ class PostsController extends GetxController {
   void fetchPosts() async {
     try {
       isLoading(true);
-      var users = await RemoteServices.fetchProducts();
-      if (users != null) {
-        postsList.value = users;
+      var post = await RemoteServices.fetchPosts();
+      if (post != null) {
+        postList.value = post;
       }
     } finally {
       isLoading(false);

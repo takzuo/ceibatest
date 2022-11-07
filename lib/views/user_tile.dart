@@ -38,7 +38,7 @@ class UserTile extends StatelessWidget {
                   GestureDetector(
                       onTap: (){
                         theid = user.id ?? 0;
-                        Navigator.pushNamed(context, "/poststile");
+                        Navigator.pushNamed(context, "/postspage");
                       },
                       child: const Text("VER PUBLICACIONES", style: TextStyle(color: primaryColor),)),
                 ],
